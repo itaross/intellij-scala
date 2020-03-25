@@ -11,8 +11,6 @@ intellijBuild in ThisBuild := Versions.intellijVersion
 
 intellijPlatform in ThisBuild := IntelliJPlatform.IdeaUltimate
 
-jbrVersion in ThisBuild := None
-
 resolvers in ThisBuild ++=
   BintrayJetbrains.allResolvers :+
     Resolver.typesafeIvyRepo("releases") :+
@@ -116,14 +114,14 @@ lazy val scalaImpl: sbt.Project =
       addCompilerPlugin(Dependencies.macroParadise),
       intellijPlugins := Seq(
         "org.intellij.intelliLang",
-        "com.intellij.platform.images",
+//        "com.intellij.platform.images",
         "com.intellij.java-i18n",
         "org.jetbrains.android",
         "com.intellij.stats.completion", // required for ml completion testing
         "com.android.tools.idea.smali",      // required by Android
         "com.intellij.gradle",     // required by Android
         "org.intellij.groovy",     // required by Gradle
-        "com.intellij.properties", // required by Gradle
+//        "com.intellij.properties", // required by Gradle
         "org.jetbrains.idea.maven",      // TODO remove after extracting the SBT module (which depends on Maven)
         "JUnit"
       ).map(_.toPlugin),
